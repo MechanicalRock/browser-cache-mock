@@ -1,0 +1,34 @@
+{
+  "name": "browser-cache-mock",
+  "version": "1.0.0",
+  "description": "a mock for the browser cache that can be used in a node environment",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MechanicalRock/browser-cache-mock.git"
+  },
+  "keywords": [
+    "test",
+    "mock",
+    "browser",
+    "cache"
+  ],
+  "author": "Rick Foxcroft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MechanicalRock/browser-cache-mock/issues"
+  },
+  "homepage": "https://github.com/MechanicalRock/browser-cache-mock#readme",
+  "typings": "./index.d.ts",
+  "devDependencies": {
+    "@types/jest": "^23.3.13",
+    "isomorphic-fetch": "^2.2.1",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.4"
+  }
+}
