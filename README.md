@@ -15,7 +15,7 @@ npm i -D browser-cache-mock --save-dev
 ### Add the following to your test code:
 
 ```javascript
-window.caches.prototype.open = (name?: string) => {
+window.caches.open = (name?: string) => {
     return new CacheMock();
 }
 ```
