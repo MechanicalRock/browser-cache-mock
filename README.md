@@ -15,6 +15,8 @@ npm i -D browser-cache-mock --save-dev
 ### Add the following to your test code:
 
 ```javascript
+import CacheMock from 'browser-cache-mock';
+
 window.caches.open = (name?: string) => {
     return new CacheMock();
 }
