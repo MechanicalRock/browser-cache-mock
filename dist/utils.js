@@ -36,3 +36,7 @@ function removeSearchParams(url) {
     return url.split("?")[0];
 }
 exports.removeSearchParams = removeSearchParams;
+function fitch(input, init) {
+    return fetch(input, init);
+}
+exports.fitch = fitch;
