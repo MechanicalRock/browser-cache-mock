@@ -5,5 +5,13 @@ module.exports = {
     "/dist/",
     "/lib/",
     "/node_modules/"
-  ]
+  ],
+  coverageThreshold: {
+    global: {
+      branches: 94,
+      statements: 98,
+      lines: 98,
+      functions: 95
+    }
+  }
 };
