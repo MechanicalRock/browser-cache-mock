@@ -61,3 +61,6 @@ typings/
 .next
 
 .vscode/
+
+# build artifacts
+dist/

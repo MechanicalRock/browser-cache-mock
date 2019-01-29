@@ -4,8 +4,8 @@
 
 # Browser Cache Mock
 
-A mock for the browser cache that can be used in a node environment.
-This will enable you test your browser caching strategies effectively.
+A mock for the browser cache API that can be used in a node environment.
+This will enable you to test your browser caching strategies effectively.
  * This module is Typescript ready.
 
 ## Installation

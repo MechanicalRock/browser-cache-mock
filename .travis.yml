@@ -3,11 +3,19 @@ language : node_js
 node_js :
   - stable
 
-install:
-  - npm install
+cache: npm
 
-script:
-  - npm test -- --coverage
+after_success: 
+  - npm run build
 
-after_script: 
+before_deploy: 
   - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
+
+deploy:
+  provider: npm
+  email: NPM_USER_EMAIL
+  api_key: NPM_AUTH_TOKEN
+  on:
+    branch: master
+    tags: true
+  skip_cleanup: true
