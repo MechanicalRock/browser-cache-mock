@@ -19,10 +19,13 @@ describe('Cache Mock', (): void => {
     });
 
     it('should throw an invalid type error', async (): Promise<void> => {
-        try {
-            await cacheMock.add({} as RequestInfo);
-        } catch (err) {
-            expect(err).toBeInstanceOf(TypeError);
+        const functions = [cacheMock.add, utils.validateRequest, utils.getRequestUrl];
+        for (const fn of functions) {
+            try {
+                await fn({} as RequestInfo);
+            } catch (err) {
+                expect(err).toBeInstanceOf(TypeError);
+            }
         }
     });
 
@@ -42,6 +45,11 @@ describe('Cache Mock', (): void => {
         expect(keys).toHaveLength(cacheMock.cache.size);
     });
 
+    async function testKeys(request: RequestInfo, options?: CacheQueryOptions): Promise<void> {
+        const keys = await cacheMock.keys(request, options);
+        expect(keys).toHaveLength(1);
+    }
+
     it('should return all the matching keys in the cache', async (): Promise<void> => {
         const firstRequest = '4',
             secondRequest = '5?foo="bar"';
@@ -52,14 +60,15 @@ describe('Cache Mock', (): void => {
             ignoreSearch: true
         };
 
-        let keys = await cacheMock.keys(firstRequest, ignoreSearchOpts);
-        expect(keys).toHaveLength(1);
+        const argPermutations: [RequestInfo, CacheQueryOptions | undefined][] = [
+            [firstRequest, ignoreSearchOpts],
+            [firstRequest, undefined],
+            [secondRequest, ignoreSearchOpts]
+        ];
 
-        keys = await cacheMock.keys(firstRequest);
-        expect(keys).toHaveLength(1);
-
-        keys = await cacheMock.keys(secondRequest, ignoreSearchOpts);
-        expect(keys).toHaveLength(1);
+        for (const args of argPermutations) {
+            await testKeys(...args);
+        }
     });
 
     it('should add a new item and overwrite an item', async (): Promise<void> => {

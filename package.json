@@ -1,8 +1,9 @@
 {
   "name": "browser-cache-mock",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "a mock for the browser cache that can be used in a node environment",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"
@@ -23,9 +24,9 @@
     "url": "https://github.com/MechanicalRock/browser-cache-mock/issues"
   },
   "homepage": "https://github.com/MechanicalRock/browser-cache-mock#readme",
-  "typings": "./index.d.ts",
   "devDependencies": {
     "@types/jest": "^23.3.13",
+    "coveralls": "^3.0.2",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.5",

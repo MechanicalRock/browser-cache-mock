@@ -65,7 +65,7 @@ export default class CacheMock {
     return false;
   }
 
-  getRequestUrl(request: RequestInfo, options?: CacheQueryOptions): string {
+  private getRequestUrl(request: RequestInfo, options?: CacheQueryOptions): string {
     let requestUrl = utils.getRequestUrl(request);
 
     if (options && options.ignoreSearch) {
@@ -91,7 +91,7 @@ export default class CacheMock {
     return this.get(req);
   }
 
-  validateRequest(request: RequestInfo, options?: CacheQueryOptions): Request {
+  private validateRequest(request: RequestInfo, options?: CacheQueryOptions): Request {
     let req = utils.validateRequest(request);
     if (options && options.ignoreSearch) {
       req = new Request(utils.removeSearchParams(req.url));
