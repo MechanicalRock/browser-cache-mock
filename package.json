@@ -30,7 +30,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.5",
-    "typescript": "^3.2.4"
+    "typescript": "^3.3.3333"
   },
   "files": [
     "dist/"

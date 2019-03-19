@@ -19,7 +19,7 @@ class CacheMock {
   private getAll({ url }: Request): Response[] {
     let matches: Response[] = [];
     for (const [key, value] of this.cache.entries()) {
-      const regex = new RegExp(url, 'g');
+      const regex = new RegExp(url, 'i');
       if (key.url.match(regex)) {
         matches.push(value);
       }
@@ -102,7 +102,7 @@ class CacheMock {
 
     if (request || (request && options && options.ignoreSearch)) {
       const requestUrl = this.getRequestUrl(request, options);
-      const regex = new RegExp(requestUrl, 'g');
+      const regex = new RegExp(requestUrl, 'i');
       return keys.filter(({ url }) => url.match(regex));
     }
 
